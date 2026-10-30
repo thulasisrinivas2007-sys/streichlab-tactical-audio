@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --color-surface: #0b0f17;
+    --color-surface-dim: #0f131c;
+    --color-surface-low: #131b2e;
+    --color-surface-high: #1c2028;
+    --color-surface-elevated: #1a243b;
+    --color-primary: #ffb800;
+    --color-secondary: #00ff66;
+    --color-tertiary: #ff1e56;
+    --color-accent: #a855f7;
+  }
+
+  body {
+    background-color: #0b0f17;
+    color: #dfe2ee;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+/* Terminal Dot Grid Background */
+.bg-cyber-grid {
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(19, 27, 46, 0.45) 0%, rgba(11, 15, 23, 0.95) 75%),
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+}
+
+/* Glassmorphism panels */
+.cyber-panel {
+  background: rgba(19, 27, 46, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cyber-panel-elevated {
+  background: rgba(26, 36, 59, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Scanline Effect */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+/* Hazard diagonal stripes */
+.hazard-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 30, 86, 0.85),
+    rgba(255, 30, 86, 0.85) 10px,
+    rgba(20, 10, 15, 0.9) 10px,
+    rgba(20, 10, 15, 0.9) 20px
+  );
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb800;
+}
+
+/* Glitch trigger animation */
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-active {
+  animation: glitch-anim 0.2s ease-in-out;
+}

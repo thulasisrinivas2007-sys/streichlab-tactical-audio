@@ -1,0 +1,6 @@
+{
+  "name": "Cyber Prank Deck",
+  "description": "High-octane cyberpunk soundboard, tactile prank FX deck, audio synthesizer, and stealth detonation toolkit.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
